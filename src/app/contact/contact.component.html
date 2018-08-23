@@ -43,21 +43,33 @@
          </p>
         <form novalidate [formGroup]="feedbackForm"(ngsubmit)="onSubmit()">
         <p>
-          <md-input-container class="half-width">
+          <md-input-container class="half-width"
+           dividerColor="{{(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched)}} ? 'warn' :'background-primary'">
             <input mdInput formControlName="firstname" placeholder="First Name" type="text">
-
+            <md-hint>
+              <span [hidden]="!(feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched)">first name is required</span>
+            </md-hint>
           </md-input-container>
-          <md-input-container class="half-width">
+          <md-input-container class="half-width"
+          dividerColor="{{(feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched)}} ? 'warn' :'background-primary'">
             <input mdInput formControlName="lastname" placeholder="LAst Name" type="text">
-
+            <md-hint>
+                <span [hidden]="!(feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched)">first name is required</span>
+              </md-hint>
           </md-input-container>
-          <md-input-container class="half-width">
+          <md-input-container class="half-width"
+          dividerColor="{{(feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched)}} ? 'warn' :'background-primary'">
             <input mdInput formControlName="telnum" placeholder="Tel Number" type="tel">
-            
+            <md-hint>
+                <span [hidden]="!(feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched)">first name is required</span>
+              </md-hint>
           </md-input-container>
-          <md-input-container class="half-width">
+          <md-input-container class="half-width"
+          dividerColor="{{(feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched)}} ? 'warn' :'background-primary'">
             <input mdInput formControlName="email" placeholder="Email" type="email">
-            
+            <md-hint>
+                <span [hidden]="!(feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched)">first name is required</span>
+              </md-hint>
           </md-input-container>          
         </p>
 
@@ -82,7 +94,8 @@
           </md-input-container>
         </p>
 
-        <button type="submit" md-button class="background-primary text-floral-white">Submit</button>
+        <button type="submit" md-button class="background-primary text-floral-white"
+        [disabled]="feedbackForm.invalid">Submit</button>
         </form>
       </div>
 </div>
