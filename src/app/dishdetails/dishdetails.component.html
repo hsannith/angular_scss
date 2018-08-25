@@ -62,6 +62,47 @@
         </md-list>  
       </md-card-content>
       </md-card>
+
+      <p>{{commentform.value | json}}</p>
+      <form novalidate [formGroup]="commentform" (ngSubmit)="onSubmit()">
+        <p>
+             <md-input-container class="half-width" dividerColor="{{formErrors.author?'warn':'primary'}}">
+                  <input mdInput formControlName="author" placeholder="Name" type="text" required>
+
+                  <md-hint >
+                    <span [hidden]= "!(formErrors.author)">
+                    {{formErrors.author}}
+                    </span>
+        
+                    </md-hint>
+              </md-input-container>
+            </p>
+              <md-slider formControlName="rating" step="1" min="1" max="5">
+                </md-slider>
+              
+                <p>
+              <md-input-container dividerColor="{{formErrors.comment?'warn':'primary'}}" >
+                  <textarea mdInput formControlName="comment" placeholder="Comment" type="text" rows="3" required></textarea>
+                
+                  <md-hint >
+                    <span [hidden]= "!(formErrors.comment)">
+                    {{formErrors.comment}}
+                    </span>
+        
+                    </md-hint>
+                
+                </md-input-container>
+                </p>
+        
+            <button [disabled]="commentform.invalid" type="submit" md-button class="background-primary text-floral-white">
+                Submit
+              </button>
+        
+    
+      </form> 
+
   </div>
+
+ 
 
 </div>
