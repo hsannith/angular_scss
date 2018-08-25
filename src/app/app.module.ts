@@ -23,6 +23,12 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+ 
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -45,10 +51,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    HttpClientModule
+
 
   ],
-  providers: [DishService,PromotionService,LeaderService],
+  providers: [DishService,PromotionService,LeaderService,
+  { provide :'BaseURL',useValue :baseURL },
+    ProcessHTTPMsgService],
   entryComponents:[
     LoginComponent
   ],
