@@ -15,6 +15,8 @@ body
 }
 
 
+
+
 $lt-gray: #ddd;
 $background-dark: #512DA8;
 $background-light: #9575CD;
@@ -47,4 +49,11 @@ $divider-color:        #BDBDBD;
 
 .flex-spacer {
   flex: 1 1 auto;
+}
+
+.highlight {
+    background-color: $background-pale;
+    border: 1px solid $primary-color-dark;
+    z-index: 1;
+    transform: scale(1.01);
 }
